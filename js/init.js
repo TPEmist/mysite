@@ -146,14 +146,18 @@
       var contactSubject = $('#contactForm #contactSubject').val();
       var contactMessage = $('#contactForm #contactMessage').val();
 
-      var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
-               '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
 
       $.ajax({
 
 	      type: "POST",
-	      url: "inc/sendEmail.php",
-	      data: data,
+	      url: "https://script.google.com/macros/s/AKfycbzcua4jwWSOt2H_nl8lGbKD_hHyGzMeSChzfypI_xbWyVxpp5gD/exec",
+	      data: {
+            "name":contactName,
+            "email":contactEmail,
+            "sub":contactSubject,
+            "message":contactMessage
+
+         },
 	      success: function(msg) {
 
             // Message was sent
