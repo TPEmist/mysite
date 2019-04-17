@@ -141,30 +141,30 @@
 
       $('#image-loader').fadeIn();
 
-      var contactName = $('#contactForm #contactName').val();
-      var contactEmail = $('#contactForm #contactEmail').val();
-      var contactSubject = $('#contactForm #contactSubject').val();
-      var contactMessage = $('#contactForm #contactMessage').val();
+      var name = $('#contactForm #contactName').val();
+      var email = $('#contactForm #contactEmail').val();
+      var subject = $('#contactForm #contactSubject').val();
+      var message = $('#contactForm #contactMessage').val();
 
 
       $.ajax({
-
+         headers:{
+            "Access-Control-Allow-Origin":"*",
+            "Access-Control-Allow-Credentials":"true",
+            "Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept",
+            "Access-Control-Allow-Methods" : "POST, GET, OPTIONS",
+            //    'Content-Type': 'application/x-www-form-urlencoded'
+            },
 	      type: "GET",
 	      url: "https://script.google.com/macros/s/AKfycbzcua4jwWSOt2H_nl8lGbKD_hHyGzMeSChzfypI_xbWyVxpp5gD/exec",
 	      data: {
-            "name":contactName,
-            "email":contactEmail,
-            "sub":contactSubject,
-            "message":contactMessage
+            "name":name,
+            "email":email,
+            "sub":subject,
+            "message":message
 
          },
-         http_headers:{
-         "Access-Control-Allow-Origin":"*",
-         "Access-Control-Allow-Credentials":"true",
-         "Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept",
-         "Access-Control-Allow-Methods" : "POST, GET, OPTIONS",
-         //    'Content-Type': 'application/x-www-form-urlencoded'
-         },
+         
 	      success: function(msg) {
 
             // Message was sent
