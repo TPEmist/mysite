@@ -149,7 +149,7 @@
 
       $.ajax({
 
-	      type: "POST",
+	      type: "get",
 	      url: "https://script.google.com/macros/s/AKfycbzcua4jwWSOt2H_nl8lGbKD_hHyGzMeSChzfypI_xbWyVxpp5gD/exec",
 	      data: {
             "name":contactName,
@@ -158,6 +158,12 @@
             "message":contactMessage
 
          },
+         // headers:{
+         //    "Access-Control-Allow-Origin":"*",
+         //    "Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept",
+         //    "Access-Control-Allow-Methods" : "POST, GET, OPTIONS",
+         //    'Content-Type': 'application/x-www-form-urlencoded'
+         // },
 	      success: function(msg) {
 
             // Message was sent
